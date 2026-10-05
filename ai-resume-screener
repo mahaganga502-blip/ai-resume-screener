@@ -1,0 +1,39 @@
+required_skills = [
+    "python",
+    "java",
+    "sql",
+    "machine learning",
+    "data analysis"
+]
+print("=== AI RESUME SCREENER ===")
+resume = input("Enter your resume text: ").lower()
+found_skills = []
+missing_skills = []
+for skill in required_skills:
+    if skill in resume:
+        found_skills.append(skill)
+    else:
+        missing_skills.append(skill)
+score = (len(found_skills) / len(required_skills)) * 100
+print("\n--- SCREENING RESULT ---")
+print("Skills Found:", found_skills)
+print("Skills Missing:", missing_skills)
+print("Match Score:", round(score, 2), "%")
+if score >= 70:
+    print("Result: SHORTLISTED")
+elif score >= 40:
+    print("Result: MAY BE CONSIDERED")
+else:
+    print("Result: NOT SHORTLISTED")
+
+
+OUTPUT:
+=== AI RESUME SCREENER ===
+Enter your resume text: I know Python, SQL, machine learning and data analysis.
+
+--- SCREENING RESULT ---
+Skills Found: ['python', 'sql', 'machine learning', 'data analysis']
+Skills Missing: ['java']
+Match Score: 80.0 %
+Result: SHORTLISTED
+
